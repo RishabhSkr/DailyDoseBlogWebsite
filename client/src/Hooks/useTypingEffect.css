@@ -1,0 +1,13 @@
+.blinking-cursor {
+  display: inline-block;
+  width: 0px; /* reduced from 4px to make it thinner */
+  background-color: black;
+  margin-left: 2px;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

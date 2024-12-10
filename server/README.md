@@ -124,4 +124,10 @@
 - bug fixing in the blog request route
 - blog id int to (uuid)string in the blog request route
 - deploy the backend to the cloudflare worker
+- create the frontend folder and setup the react app
+- create the components folder and add the components
+- create the pages folder and add the pages
+- create the hooks folder and add the hooks
+- create the sighin up sighin page and add the components
+- 
 
