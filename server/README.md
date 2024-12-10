@@ -6,8 +6,8 @@
 - Prisma as the ORM, with connection pooling
 - Postgres as the database
 - jwt for authentication
- 
 - Uses the `hono` framework instead of `express`
+
 ## Steps 
 - create backened Dir 
 
@@ -74,5 +74,54 @@
             datasourceUrl: env.DATABASE_URL,
         }).$extends(withAccelerate())
 ```
-- Add jwt signup route
--
+- Add jwt signup/signin route
+- Add the blog request route
+- Add middleware to verify the token (before the blog request route)
+- create `zod` schema for `validation` for user and blog
+- make zod validatons common for frontend and backend
+    - created a common repo for zod schema
+    - move the zod schema to the common/src folder /index.ts
+    - creating a tsconfig.json file in the common folder
+    ```bash 
+        npm init -y
+        npx tsc --init
+        #build the common package
+        npx tsc -build
+        # modify the package.json file
+            rootDir: "src/",
+            outDir: "dist/",
+            declaration: true, // d.ts files created 
+    ```
+- publish the common repo to npm
+    - create a new repo in github
+    - push the code to the repo
+    - create a new npm package
+        - give the package name unique (packgae.json)
+        - create a new version
+        - cmd - npm login
+        - cmd - npm publish --access public (to access the package publicly)
+    - publish the package
+    - install the package in the backend
+    ```bash
+        npm install @rishabh786/medium-common
+        # now you can use the zod schema in the backend
+    ```
+
+## Bug Fixing
+- Fix the bug type(authorId) string  to Int (invalid type zod val) in the blog request route
+- blog id int to (uuid)string in the blog request route
+
+## Commit changes
+- commit the changes to the git
+- write the backened routes user and blog
+- write the zod schema for user and blog
+- write the middleware for the token verification
+- write the blog request route
+- write the signup and signin route
+- common zod schema for the frontend and backend
+- publish the common zod schema to npm
+- install the common zod schema in the backend
+- bug fixing in the blog request route
+- blog id int to (uuid)string in the blog request route
+- deploy the backend to the cloudflare worker
+
