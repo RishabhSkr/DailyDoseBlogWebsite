@@ -12,6 +12,8 @@ export const userRouter = new Hono<{
     }
 }>();
 
+// get me user
+
 userRouter.post('/signup', async (c) => {
     const body = await c.req.json();
     const { success } = signupInput.safeParse(body);
@@ -39,7 +41,6 @@ userRouter.post('/signup', async (c) => {
   
       return c.text(jwt)
     } catch(e) {
-      console.log(e);
       c.status(411);
       return c.text('Invalid')
     }
@@ -79,7 +80,6 @@ userRouter.post('/signup', async (c) => {
   
       return c.text(jwt)
     } catch(e) {
-      console.log(e);
       c.status(411);
       return c.text('Invalid')
     }

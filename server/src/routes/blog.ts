@@ -180,6 +180,7 @@ blogRouter.get('/bulk', async (c) => {
                 content: true,
                 title: true,
                 id: true,
+                createdAt: true,
                 author: {
                     select: {
                         username: true,
@@ -321,7 +322,7 @@ blogRouter.delete('/author/blogs/:id', async (c) => {
             c.status(403);
             return c.json({
                 status: false,
-                message: "Unauthorized: You can only delete your own blogs"
+                message: "Unauthorized: You does not have a delete access"
             });
         }
 

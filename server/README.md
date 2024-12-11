@@ -124,10 +124,35 @@
 - bug fixing in the blog request route
 - blog id int to (uuid)string in the blog request route
 - deploy the backend to the cloudflare worker
+
+## Frontend - Commits
 - create the frontend folder and setup the react app
 - create the components folder and add the components
 - create the pages folder and add the pages
 - create the hooks folder and add the hooks
 - create the sighin up sighin page and add the components
+- Created a Landing page
+- Created a Navbar
+- Created a Footer
+- Created a Blog page
+- Created a BlogCard component
+- Created a fullBlog component
+- Fullblog divided into two parts
+    - BlogHeader- Autor Section and Blog Title
+    - BlogContent- Blog Content
 - 
+- Added a BlogSkeleton UI for the blogs loading state
+- Added a blog page to view the blog
+- Added a blog page to Publish the blog
+- Using the common zod schema in the frontend
+- Created interface for blog and user
+- Created a hook to fetch the blogs 
+- Created a hook to fetch the blog by id
+- Created a hook to publish the blog
+- Created a hook to delete the blog
+- Use useLocation to change the behaviour of AppBar
+- Added list in Appbar to show the user name and logout
+- Created a layout component to wrap the pages and make AppBar common
+- Created  a useTypingEffect custom Hook for TypinEffect of Quotes
+- fix Responive Design for the Blog Page
 

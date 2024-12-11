@@ -151,6 +151,7 @@ blogRouter.get('/bulk', async (c) => {
                 content: true,
                 title: true,
                 id: true,
+                createdAt: true,
                 author: {
                     select: {
                         username: true,
@@ -182,6 +183,7 @@ blogRouter.get('/bulk', async (c) => {
         });
     }
 });
+
 blogRouter.get('/:id', async (c) => {
     try {
         // 1. URL se ID extract karo

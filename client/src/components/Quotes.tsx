@@ -1,7 +1,7 @@
 import { useTypingEffect } from '../Hooks/useTypingEffect';
 
 export const Quotes =   () => {
-  const fullText = `"The customer support I received was exceptional. The support team went above and beyond to address my concerns."`;
+  const fullText = `"A learned man is superior to a rich man, because a learned man can earn wealth, but a rich man cannot earn learning."`;
   const { text, isComplete } = useTypingEffect(fullText);
 
   return (
@@ -15,9 +15,9 @@ export const Quotes =   () => {
           {isComplete && (
             <div className="transition-all duration-1000 ease-in transform translate-y-0 opacity-100"
                  style={{ animation: 'fadeIn 1s' }}>
-              <div className="text-lg max-w-md font-semibold mt-2">Julies Winfield</div>
+              <div className="text-lg max-w-md font-semibold mt-2">Chanakya</div>
               <div className="text-gray-500 text-sm max-w-md font-medium">
-                CEO, Acme Inc
+                Indian Philosopher
               </div>
             </div>
           )}

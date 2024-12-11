@@ -30,7 +30,6 @@ userRouter.post('/signup', async (c) => {
         return c.text(jwt);
     }
     catch (e) {
-        console.log(e);
         c.status(411);
         return c.text('Invalid');
     }
@@ -66,7 +65,6 @@ userRouter.post('/signin', async (c) => {
         return c.text(jwt);
     }
     catch (e) {
-        console.log(e);
         c.status(411);
         return c.text('Invalid');
     }

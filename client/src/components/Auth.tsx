@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { SignupInput } from "@rishabh786/medium-common";
 import axios from "axios";
-import { SERVER_URL } from "../config";
 
+const SERVER_URL  = import.meta.env.VITE_API_URL;
 export const Auth =  ({type}:{type:"signup" |"signin"}) => {
   const navigate = useNavigate();
   const [postInputs, setPostInputs] = useState<SignupInput>({
@@ -11,15 +11,19 @@ export const Auth =  ({type}:{type:"signup" |"signin"}) => {
     username: "",
     password: "",
   })
+
   const sendRequest = async () => {
     try{
       const res = await axios.post(`${SERVER_URL}/api/v1/user/${type == "signin" ? "signin" : "signup"}` , postInputs);
       const jwt =res.data
       localStorage.setItem("token",jwt);
+      localStorage.setItem("userId",postInputs.username);
+    
+      
       alert("Signed in successfully");
+
       navigate("/blogs");      
     }catch(e){
-      console.log(e);
       alert("Error while signing up");
     } 
   }
