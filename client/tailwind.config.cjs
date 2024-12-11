@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -18,8 +18,6 @@ export default {
     },
   },
   plugins: [
-    // Use dynamic import for ESM compatibility
-    // @ts-ignore
-    require('@tailwindcss/typography')(),
+    require('@tailwindcss/typography'),
   ],
-}
+};
