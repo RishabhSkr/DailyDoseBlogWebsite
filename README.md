@@ -1,4 +1,4 @@
-# Server Side-Blog Website
+# Daily Dose- MERN Blog Website [DailyDose]()
 ## Backend - Cloudflare Worker
 - Cloudflare workers in the backend
 - zod as the validation library, type inference for the frontend types
