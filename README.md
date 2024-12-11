@@ -110,6 +110,7 @@
 ## Bug Fixing
 - Fix the bug type(authorId) string  to Int (invalid type zod val) in the blog request route
 - blog id int to (uuid)string in the blog request route
+- Bug Fix change the behaviour after and before login/Signup using useLocation Hook
 
 ## Commit changes
 - commit the changes to the git

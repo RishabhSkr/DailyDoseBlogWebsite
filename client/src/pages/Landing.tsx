@@ -1,6 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 export const Landing = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const checkAuth = () => {
+      const token = localStorage.getItem("token");
+      setIsAuthenticated(!!token);
+    };
+    
+    checkAuth();
+  }, [location]);
+
   const features = [
     {
       title: "Write & Share",
@@ -29,16 +42,27 @@ export const Landing = () => {
       {/* Hero Section */}
       <div className="min-h-[85vh] flex flex-col justify-center items-center bg-gradient-to-br from-cyan-700 to-gray-700 text-white text-center px-4 py-8">
         <h1 className="text-5xl md:text-6xl font-bold mb-4">
-          Your Story Matters
+          {isAuthenticated ? `Welcome Back, Blogger` : "Your Story Matters"}
         </h1>
         <p className="text-xl md:text-2xl max-w-2xl mb-8">
-          Join our community of writers and readers. Share your perspective with the world.
+          {isAuthenticated 
+            ? "Continue your journey of sharing amazing stories with the world."
+            : "Join our community of writers and readers. Share your perspective with the world."}
         </p>
-        <Link to="/signup">
-          <button className="px-8 py-4 text-lg bg-white text-slate-600 rounded-lg font-medium hover:shadow-lg transition-shadow hover:scale-105">
-            Join Now
-          </button>
-        </Link>
+        {!isAuthenticated && (
+          <Link to="/signup">
+            <button className="px-8 py-4 text-lg bg-white text-slate-600 rounded-lg font-medium hover:shadow-lg transition-shadow hover:scale-105">
+              Join Now
+            </button>
+          </Link>
+        )}
+        {isAuthenticated && (
+          <Link to="/publish">
+            <button className="px-8 py-4 text-lg bg-white text-slate-600 rounded-lg font-medium hover:shadow-lg transition-shadow hover:scale-105">
+              Start Writing
+            </button>
+          </Link>
+        )}
       </div>
 
       {/* Features Grid Section */}
@@ -62,32 +86,32 @@ export const Landing = () => {
         </div>
       </div>
 
-      <div className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-gray-800">
-            Ready to Start Your Journey?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join thousands of writers and readers who are already part of our community.
-          </p>
-          <div className="flex gap-4 justify-center">
-            <Link to="/signup">
-              <button
-                className="px-8 py-3 bg-slate-600 text-white rounded-lg font-medium hover:bg-black hover:scale-105 transition-all"
-              >
-                Create Account
-              </button>
-            </Link>
-            <Link to="/signin">
-              <button
-                className="px-8 py-3 bg-white text-slate-800 border border-slate-600 rounded-lg font-medium hover:bg-indigo-50 hover:scale-105 transition-all"
-              >
-                Sign In
-              </button>
-            </Link>
+      {/* CTA Section */}
+      {!isAuthenticated && (
+        <div>
+          <div className="bg-gray-50 py-16"></div>
+            <div className="max-w-7xl mx-auto px-4 text-center">
+              <h2 className="text-3xl font-bold mb-4 text-gray-800">
+                Ready to Start Your Journey?
+              </h2>
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Join thousands of writers and readers who are already part of our community.
+              </p>
+              <div className="pb-4 flex gap-4 justify-center">
+                <Link to="/signup">
+                  <button className=" px-8  py-3 bg-slate-600 text-white rounded-lg font-medium hover:bg-black hover:scale-105 transition-all">
+                    Create Account
+                  </button>
+                </Link>
+                <Link to="/signin">
+                  <button className="px-8 py-3 bg-white text-slate-800 border border-slate-600 rounded-lg font-medium hover:bg-indigo-50 hover:scale-105 transition-all">
+                    Sign In
+                  </button>
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 };
