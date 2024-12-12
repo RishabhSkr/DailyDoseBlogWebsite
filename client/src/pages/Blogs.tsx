@@ -6,6 +6,7 @@ const Blogs = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const { loading, blogs, metadata } = useBlogs(currentPage);
 
+    // console.log(blogs);
     if (loading || !blogs) {
         return <div>
             <div  className="flex justify-center">
@@ -20,7 +21,6 @@ const Blogs = () => {
         </div>
     }
 
-
     return (
       <div>
         <div className="max-w-4xl mx-auto py-8">
@@ -33,7 +33,7 @@ const Blogs = () => {
                           authorName={blog.author.name}
                           title={blog.title}
                           content={blog.content}
-                          publishedDate={blog.createdAt}
+                          publishedDate={ blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : 'No date'}
                       />
                   ))}
               </div>

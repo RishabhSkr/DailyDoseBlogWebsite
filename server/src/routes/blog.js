@@ -183,7 +183,6 @@ blogRouter.get('/bulk', async (c) => {
         });
     }
 });
-
 blogRouter.get('/:id', async (c) => {
     try {
         // 1. URL se ID extract karo
@@ -281,7 +280,7 @@ blogRouter.delete('/author/blogs/:id', async (c) => {
             c.status(403);
             return c.json({
                 status: false,
-                message: "Unauthorized: You can only delete your own blogs"
+                message: "Unauthorized: You does not have a delete access"
             });
         }
         // 6. Delete the blog

@@ -72,7 +72,11 @@ export const useBlogs = (page: number = 1, limit: number = 10) => {
         })
         .then(response => {
             if (response.data.status) {
-                setBlogs(response.data.blogs);
+                const blogsData = response.data.blogs.map((blog: Blog) => ({
+                    ...blog,
+                    createdAt: blog.createdAt && !isNaN(Date.parse(blog.createdAt)) ? blog.createdAt : "NoDate"
+                }));
+                setBlogs(blogsData);
                 setMetadata(response.data.metadata);
             }
             setLoading(false);

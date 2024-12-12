@@ -111,6 +111,8 @@
 - Fix the bug type(authorId) string  to Int (invalid type zod val) in the blog request route
 - blog id int to (uuid)string in the blog request route
 - Bug Fix change the behaviour after and before login/Signup using useLocation Hook
+- Bug Fix Responive Design for the Blog Page
+- Bug fix date is not showing in the blogs page showing (Invalid Date) Reason:backned updated not to cloudflare worker
 
 ## Commit changes
 - commit the changes to the git
@@ -156,4 +158,5 @@
 - Created a layout component to wrap the pages and make AppBar common
 - Created  a useTypingEffect custom Hook for TypinEffect of Quotes
 - fix Responive Design for the Blog Page
+
 

@@ -4,6 +4,7 @@ import { withAccelerate } from '@prisma/extension-accelerate';
 import { sign } from 'hono/jwt';
 import { signinInput, signupInput } from "@rishabh786/medium-common";
 export const userRouter = new Hono();
+// get me user
 userRouter.post('/signup', async (c) => {
     const body = await c.req.json();
     const { success } = signupInput.safeParse(body);
